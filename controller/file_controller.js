@@ -26,7 +26,10 @@ exports.fileUpload = async (req, res) => {
         res.json({ message: `Upload error: ${err}` });
       } else {
         const fileId = uid.rnd();
-        const fileData = new FileData({fileId: fileId, fileName: 'test-name.png'});
+        const fileData = new FileData({
+          fileId: fileId,
+          fileName: req.file.filename,
+        });
         await fileData.save();
 
         res
@@ -40,5 +43,17 @@ exports.fileUpload = async (req, res) => {
 };
 
 exports.downloadFile = async (req, res) => {
-  const fileId = req.params.id;
+  try {
+    const fileId = req.params.id;
+
+    const file = await FileData.findOne({ fileId: fileId });
+
+    if (!file) {
+      res.status(404).json({ message: "File not found" });
+    }
+
+    res.status(200).json({ attachment: file.fileName });
+  } catch (e) {
+    res.status(500).json({ message: `fileUpload error: ${e}` });
+  }
 };
