@@ -4,14 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fast Drop</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo.png"
+      type="image/x-icon"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <link rel="stylesheet" href="./assets/css/output.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
       rel="stylesheet"
     />
+    <!-- Toastr CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+      rel="stylesheet"
+    />
+    <!-- jQuery (required by Toastr) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   </head>
   <body>
-    <div class="flex items-center justify-center w-full h-screen" id="fileUploadContainer">
+    <div
+      class="flex items-center justify-center w-full h-screen"
+      id="fileUploadContainer"
+    >
       <label
         for="uploadFile"
         class="flex flex-col h-screen items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed cursor-pointer bg-gray-50 hover:bg-gray-100"
@@ -41,26 +59,41 @@
       </label>
     </div>
 
-    <div class="flex flex-col items-center justify-center h-screen hidden" id="fileProgressContainer">
+    <div
+      class="flex flex-col items-center justify-center h-screen hidden"
+      id="fileProgressContainer"
+    >
       <div
         class="bg-gray-100 shadow-lg rounded-xl flex flex-col items-center w-96 mx-4 p-4"
       >
         <!-- Progress bar -->
         <div class="flex flex-row justify-between items-center mb-2 w-full">
-          <span class="text-base font-medium text-blue-700">Flowbite</span>
-          <span class="text-sm font-medium text-blue-700">45%</span>
+          <span
+            class="text-base font-medium text-gray-700"
+            id="fileName"
+          ></span>
+          <span
+            class="text-sm font-medium text-gray-700"
+            id="percentText"
+          ></span>
         </div>
         <div class="w-full bg-gray-200 rounded-full h-2.5">
-          <div class="bg-blue-600 h-2.5 rounded-full" style="width: 45%"></div>
+          <div
+            class="bg-gray-900 h-2.5 rounded-full"
+            style="width: 45%"
+            id="progressBar"
+          ></div>
         </div>
 
         <!-- Copy container -->
         <div
-          class="flex flex-row shadow-lg justify-between items-center gap-2 my-8 bg-white rounded-full w-80 px-4 py-1"
+          class="flex flex-row shadow-lg justify-between items-center gap-2 my-8 bg-white rounded-full w-80 px-4 py-1 hidden"
+          id="copyContainer"
         >
-          <p>https://yoni-tad.com/dl/2546395784</p>
+          <p class="text-sm font-semibold" id="fileUrl"></p>
           <svg
             class="h-5 cursor-pointer"
+            id="copyIcon"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -75,24 +108,41 @@
             />
           </svg>
         </div>
-        <p class="text-sm">Expire after 24 hours</p>
+        <p class="text-sm mt-4">Expire after 24 hours</p>
       </div>
-      <div class="p-4 bg-gray-100 rounded-full mt-4">
-        <svg
-          class="h-4"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="size-6"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M6 18 18 6M6 6l12 12"
-          />
-        </svg>
+      <div class="flex flex-row item-center gap-2">
+        <a href="https://github.com/yoni-tad" target="_blank" class="p-4 bg-gray-100 rounded-full mt-4">
+          <svg
+            class="h-4 text-yellow-400"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="size-6"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </a>
+        <a href="index.html" class="p-4 bg-gray-100 rounded-full mt-4">
+          <svg
+            class="h-4"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            />
+          </svg>
+        </a>
       </div>
     </div>
 

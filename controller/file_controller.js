@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({
-  limits: { fileSize: 100000000 },
+  limits: { fileSize: (100 * (1024 * 1024)) },
   storage: storage,
 }).single("file");
 
@@ -52,7 +52,9 @@ exports.downloadFile = async (req, res) => {
       res.status(404).json({ message: "File not found" });
     }
 
-    res.status(200).json({ attachment: file.fileName });
+    const filePath = `${__dirname}/../uploads/${file.fileName}`; 
+
+    res.download(filePath);
   } catch (e) {
     res.status(500).json({ message: `fileUpload error: ${e}` });
   }
