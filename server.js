@@ -17,7 +17,7 @@ const port = process.env.port || 3000;
     await mongoose.connect(process.env.MONGO_DB);
     console.log("✅ Mongo db successfully connected");
 
-    app.listen(port, () => {
+    app.listen(3000, () => {
       console.log(`✅ Server start at: ${port}`);
     });
   } catch (e) {

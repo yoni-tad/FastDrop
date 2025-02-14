@@ -1,6 +1,6 @@
 const fileProgressContainer = document.getElementById("fileProgressContainer");
 const fileUploadContainer = document.getElementById("fileUploadContainer");
-const baseUrl = "http://localhost:3030";
+const baseUrl = "https://me.yoni-tad.com/fast-drop";
 
 document.getElementById("uploadFile").onchange = (e) => {
   fileUploadContainer.classList.add("hidden");
@@ -48,6 +48,8 @@ async function fileUpload(e) {
       }
     };
     xhr.send(formData);
+  } else {
+    toastr.error(`Max file size can upload 100 MB`);
   }
 }
 
