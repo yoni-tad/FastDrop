@@ -33,7 +33,7 @@ async function deleteFiles() {
   }
 }
 
-cron.schedule("* * * * * *", () => {
+cron.schedule("0 0 * * *", () => {
     console.log('Running cleanup job...');
   deleteFiles();
 });
