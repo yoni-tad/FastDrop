@@ -7,7 +7,7 @@ async function deleteFiles() {
   try {
     const uploadDir = path.join(__dirname, "../uploads");
     const fileToDelete = await FileData.find({
-        createdAt: { $lt: new Date(Date.now() - 1 * 60 * 60 * 1000) },
+        createdAt: { $lt: new Date(Date.now() - 24 * 60 * 60 * 1000) },
     });
 
     if (fileToDelete.length === 0) {
