@@ -3,9 +3,9 @@ const dotenv = require("dotenv");
 const path = require("path");
 const mongoose = require("mongoose");
 const fileRoute = require("./routes/file_route");
-
 const app = express();
 dotenv.config();
+require('./cron/file_clean');
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -17,7 +17,7 @@ const port = process.env.port || 3000;
     await mongoose.connect(process.env.MONGO_DB);
     console.log("✅ Mongo db successfully connected");
 
-    app.listen(3000, () => {
+    app.listen(port, () => {
       console.log(`✅ Server start at: ${port}`);
     });
   } catch (e) {

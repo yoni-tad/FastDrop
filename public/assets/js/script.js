@@ -1,6 +1,6 @@
 const fileProgressContainer = document.getElementById("fileProgressContainer");
 const fileUploadContainer = document.getElementById("fileUploadContainer");
-const baseUrl = "https://me.yoni-tad.com/fast-drop";
+const baseUrl = "http://localhost:3030";
 
 document.getElementById("uploadFile").onchange = (e) => {
   fileUploadContainer.classList.add("hidden");
