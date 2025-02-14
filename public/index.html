@@ -10,7 +10,7 @@
       type="image/x-icon"
     />
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <link rel="stylesheet" href="./assets/css/output.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
       rel="stylesheet"
@@ -27,7 +27,7 @@
   </head>
   <body>
     <div
-      class="flex items-center justify-center w-full h-screen"
+      class="flex items-center justify-center w-full h-screen "
       id="fileUploadContainer"
     >
       <label
@@ -60,11 +60,11 @@
     </div>
 
     <div
-      class="flex flex-col items-center justify-center h-screen hidden"
+      class="flex flex-col items-center justify-center h-screen mx-4 hidden"
       id="fileProgressContainer"
     >
       <div
-        class="bg-gray-100 shadow-lg rounded-xl flex flex-col items-center w-1/2 mx-4 p-4"
+        class="bg-gray-100 shadow-lg rounded-xl flex flex-col items-center w-sm mx-4 p-4"
       >
         <!-- Progress bar -->
         <div class="flex flex-row justify-between items-center mb-2 w-full">
