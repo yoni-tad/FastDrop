@@ -47,6 +47,9 @@ npm start
 ```
 The server will run on http://localhost:5000/
 
+## Diagram
+
+![FastDrop Preview](./public/assets/images/diagram.png) **Fast Drop | Diagram**
 
 ## 🤝 Contributing
 FastDrop is open-source, and contributions are welcome! To contribute:
